@@ -8,7 +8,6 @@
     <style>
         :root { 
             --primary: #ff6a00; 
-            /* --- PREMIUM SOFTER DARK THEME --- */
             --dark: #0f0f0f; 
             --card: #1a1a1a; 
             --border: #2a2a2a; 
@@ -20,24 +19,11 @@
 
         /* --- HEADER & NAVIGATION --- */
         header { position: fixed; width: 100%; top: 0; background: rgba(15,15,15,0.95); backdrop-filter: blur(12px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid var(--border); }
-        .logo-container { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            cursor: pointer; 
-        }
-        .logo-img { 
-            height: 35px; 
-            object-fit: contain; 
-            margin-bottom: 2px; 
-        }
-        .logo-text { 
-            font-size: 16px; 
-            font-weight: 800; 
-            color: var(--primary); 
-            letter-spacing: -0.5px; 
-            text-transform: uppercase; 
-        }
+        
+        .logo-container { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+        .logo-img { height: 35px; object-fit: contain; margin-bottom: 2px; }
+        .logo-text { font-size: 16px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; text-transform: uppercase; }
+
         .search-bar { flex: 1; max-width: 400px; margin: 0 20px; padding: 10px 20px; background: #222; border: 1px solid var(--border); border-radius: 50px; color: white; outline: none; }
         .search-bar:focus { border-color: var(--primary); }
         
@@ -46,9 +32,7 @@
         .chip-btn.active, .chip-btn:hover { background: var(--primary); color: #000; border-color: var(--primary); font-weight: 700; }
 
         /* --- HERO BANNER --- */
-        .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/hero.png') center/cover no-repeat; margin-top: 70px; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
-        .hero h1 { font-size: 3.8rem; font-weight: 800; color: #fff; margin-bottom: 10px; text-transform: uppercase; font-style: italic; text-shadow: 3px 3px 15px rgba(0,0,0,0.9); }
-        .hero p { color: #fff; font-weight: 600; font-size: 1.3rem; letter-spacing: 1px; text-shadow: 2px 2px 10px rgba(0,0,0,0.9); }
+        .hero { height: 60vh; background: url('images/hero.png') center/contain no-repeat; margin-top: 75px; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
 
         /* --- MAIN LAYOUT --- */
         .container { padding: 40px 5% 50px; min-height: 50vh; }
@@ -61,13 +45,13 @@
         .p-card { background: var(--card); padding: 20px; border-radius: 15px; border: 1px solid var(--border); position: relative; transition: 0.3s; display: flex; flex-direction: column; }
         .p-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 106, 0, 0.1); }
         
-        .img-box { width: 100%; height: 220px; border-radius: 10px; overflow: hidden; background: #ffffff; position: relative; padding: 15px; cursor: pointer; transition: 0.3s; }
+        .img-box { width: 100%; height: 220px; border-radius: 10px; overflow: hidden; background: transparent; position: relative; padding: 15px; cursor: pointer; transition: 0.3s; }
         .img-box:hover { filter: brightness(0.9); }
         .img-box img { width: 100%; height: 100%; object-fit: contain; display: none; }
         .img-box img.active { display: block; }
         
         .thumb-nav { display: flex; gap: 8px; margin-top: 15px; justify-content: center; }
-        .thumb { width: 45px; height: 45px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; opacity: 0.4; background: #fff; object-fit: contain; padding: 2px; }
+        .thumb { width: 45px; height: 45px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; opacity: 0.4; background: transparent; object-fit: contain; padding: 2px; }
         .thumb.active { opacity: 1; border-color: var(--primary); }
 
         .p-desc { font-size: 13px; color: var(--dim); margin-top: 8px; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
@@ -80,7 +64,7 @@
         /* --- LIGHTBOX (IMAGE SLIDER) --- */
         .lightbox-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 3000; display: none; align-items: center; justify-content: center; flex-direction: column; backdrop-filter: blur(8px); }
         .lightbox-wrapper.active { display: flex; }
-        .lb-img { max-width: 90vw; max-height: 60vh; object-fit: contain; border-radius: 12px; background: #fff; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .lb-img { max-width: 90vw; max-height: 60vh; object-fit: contain; border-radius: 12px; background: transparent; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .lb-controls { position: absolute; width: 100%; display: flex; justify-content: space-between; top: 50%; transform: translateY(-50%); padding: 0 5%; pointer-events: none; }
         .lb-btn { background: var(--primary); color: #000; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; font-weight: bold; cursor: pointer; pointer-events: auto; display: flex; justify-content: center; align-items: center; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         .lb-btn:hover { transform: scale(1.1); }
@@ -90,12 +74,12 @@
         .lb-desc { margin-top: 10px; max-width: 700px; text-align: center; color: var(--text); font-size: 15px; padding: 0 20px; line-height: 1.6; }
 
         /* --- SIDE PANELS --- */
-        .side-panel { position: fixed; top: 0; right: -100%; width: 420px; height: 100%; background: var(--dark); z-index: 2000; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); padding: 30px; border-left: 1px solid var(--border); overflow-y: auto; }
+        .side-panel { position: fixed; top: 0; right: -100%; width: 450px; height: 100%; background: #111; z-index: 2000; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); padding: 30px; border-left: 1px solid var(--border); }
         .side-panel.active { right: 0; }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1500; display: none; backdrop-filter: blur(5px); }
         .overlay.active { display: block; }
 
-        input, textarea, select { width: 100%; padding: 14px; margin: 10px 0; background: var(--card); border: 1px solid var(--border); color: white; border-radius: 10px; font-size: 14px; }
+        input, textarea, select { width: 100%; padding: 14px; margin: 10px 0; background: #1a1a1a; border: 1px solid var(--border); color: white; border-radius: 10px; font-size: 14px; }
         input:focus, textarea:focus, select:focus { border-color: var(--primary); outline: none; }
         
         .main-btn { width: 100%; padding: 15px; background: var(--primary); border: none; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 16px; color:#000; transition: 0.2s; text-transform: uppercase; }
@@ -115,17 +99,37 @@
         .billing-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--dim); margin-bottom: 6px; font-weight: 500; }
         .billing-row.total { font-size: 22px; font-weight: 800; color: var(--text); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
         
-        footer { background: var(--dark); padding: 70px 5%; border-top: 1px solid var(--border); margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        footer { background: #0a0a0a; padding: 70px 5%; border-top: 1px solid var(--border); margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
         footer h4 { color: var(--primary); margin-bottom: 20px; font-size: 18px; text-transform: uppercase; }
         footer p { color: var(--dim); line-height: 1.8; font-size: 14px; }
+
+        /* =========================================
+           MOBILE RESPONSIVENESS (NEW UPDATE)
+           ========================================= */
+        @media (max-width: 768px) {
+            header { padding: 12px 5%; flex-wrap: wrap; }
+            .logo-container { flex-direction: row; gap: 8px; }
+            .logo-img { height: 25px; margin-bottom: 0; }
+            .logo-text { font-size: 16px; }
+            .nav-btns { gap: 8px; }
+            .chip-btn { padding: 6px 12px; font-size: 11px; }
+            
+            /* Drops search bar to its own row on mobile */
+            .search-bar { order: 3; max-width: 100%; margin: 12px 0 0 0; width: 100%; padding: 12px; font-size: 14px; }
+            
+            /* Adjusts Hero image so it isn't hidden behind the taller header */
+            .hero { margin-top: 120px; height: 35vh; }
+            
+            .side-panel { width: 100%; right: -100%; padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo-container" onclick="location.reload()">
-      <img src="images/logo.jpeg" alt="Logo" class="logo-img">
-      <span class="logo-text">Fitness Garage</span>
+        <img src="images/logo.jpeg" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+        <span class="logo-text">Fitness Garage</span>
     </div>
     <input type="text" class="search-bar" placeholder="Search protein, pre-workout..." onkeyup="window.app.search(this.value)">
     <div class="nav-btns" id="navAuth">
@@ -134,10 +138,7 @@
     </div>
 </header>
 
-<section class="hero">
-    <h1>Fuel Your Performance</h1>
-    <p>Premium Supplements & Gear for Elite Athletes.</p>
-</section>
+<section class="hero"></section>
 
 <div class="container">
     <div class="cat-scroll" id="dynamicCats">
@@ -151,7 +152,7 @@
     <div class="grid" id="mainGrid"></div>
 </div>
 
-<div class="whatsapp-btn" onclick="window.open('https://wa.me/919682627975')">💬</div>
+<div class="whatsapp-btn" onclick="window.open('https://wa.me/919999999999')">💬</div>
 <div class="overlay" id="overlay" onclick="window.ui.closeAll()"></div>
 
 <div class="lightbox-wrapper" id="lightbox">
@@ -167,7 +168,7 @@
     <div id="lbDesc" class="lb-desc"></div>
 </div>
 
-<div class="side-panel" id="authSide">
+<div class="side-panel" id="authSide" style="overflow-y: auto;">
     
     <div id="authBox">
         <h2 id="authTitle" style="margin-bottom: 20px; font-weight: 800; text-transform: uppercase;">Customer Login</h2>
@@ -181,7 +182,7 @@
         <button class="main-btn" style="margin-top: 15px;" onclick="window.auth.submitAuth()">Continue</button>
         <p id="toggleAuthText" onclick="window.auth.toggleMode()" style="text-align:center; margin-top:20px; cursor:pointer; font-size:14px; color:var(--dim); font-weight: 500;">Switch to Register</p>
         
-        <hr style="margin: 30px 0; border: #222 1px solid">
+        <hr style="margin: 30px 0; border: var(--border) 1px solid">
         <button class="main-btn sec-btn" onclick="window.auth.showAdminAuth()">Admin Portal</button>
     </div>
 
@@ -196,7 +197,7 @@
 
     <div id="profileBox" style="display: none;">
         <h2 style="text-transform: uppercase; font-weight: 800;">My Account</h2>
-        <div class="item-row" style="flex-direction: column; align-items: flex-start; margin-top: 25px; padding: 25px;">
+        <div class="item-row" style="flex-direction: column; align-items: flex-start; margin-top: 25px; padding: 25px; background: var(--dark);">
             <p style="font-size: 13px; color: var(--dim); font-weight: 600;">Full Name</p>
             <input type="text" id="upName">
             <p style="font-size: 13px; color: var(--dim); font-weight: 600; margin-top: 10px;">Phone Number</p>
@@ -220,7 +221,7 @@
 
     <div id="cartList" style="flex-grow: 1; overflow-y: auto; padding-right: 5px; margin-bottom: 20px;"></div>
     
-    <div style="flex-shrink: 0; background: var(--card); border: 1px solid var(--border); border-radius: 15px; padding: 20px;">
+    <div style="flex-shrink: 0; background: var(--dark); border: 1px solid var(--border); border-radius: 15px; padding: 20px;">
         
         <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed var(--border);">
             <p style="font-size: 12px; color: var(--dim); margin-bottom: 4px;"><b>BILLED BY:</b> <span style="color:var(--text)">Fitness Garage Pro</span></p>
@@ -228,7 +229,7 @@
         </div>
 
         <div style="display:flex; gap:10px; margin-bottom: 10px;">
-            <input type="text" id="couponInput" placeholder="Enter Promo Code" style="margin:0; padding:10px; flex:1; text-transform:uppercase; font-size:13px; background:var(--dark);">
+            <input type="text" id="couponInput" placeholder="Promo Code" style="margin:0; padding:10px; flex:1; text-transform:uppercase; font-size:13px;">
             <button class="main-btn" style="width:auto; padding:10px 20px; font-size:13px;" onclick="window.app.applyCoupon()">Apply</button>
         </div>
         <p id="couponMsg" style="font-size:12px; margin-bottom:15px; display:none; font-weight:600;"></p>
@@ -237,7 +238,7 @@
             <span>Subtotal:</span><span id="cartSubtotal">₹0</span>
         </div>
         <div class="billing-row" id="cartDiscountRow" style="display:none; color: #00c896;">
-            <span>Coupon Discount:</span><span id="cartDiscountAmt">-₹0</span>
+            <span>Discount:</span><span id="cartDiscountAmt">-₹0</span>
         </div>
         <div class="billing-row">
             <span>Tax (5%):</span><span id="cartTax">₹0</span>
@@ -253,12 +254,12 @@
     </div>
 </div>
 
-<div class="side-panel" id="adminSide" style="width: 100%; max-width: 950px;">
+<div class="side-panel" id="adminSide" style="width: 100%; max-width: 950px; overflow-y: auto;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
         <h2 style="text-transform: uppercase; font-weight: 800; color: var(--primary);">Admin Control Center</h2>
         <button class="danger-btn" style="padding: 12px 25px; font-size: 14px;" onclick="window.ui.closeAll()">Close Dashboard</button>
     </div>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px;">
         
         <div>
             <h3 style="text-transform: uppercase; margin-bottom: 20px;">Add New Supplement</h3>
@@ -273,11 +274,10 @@
             
             <p style="font-size:13px; color:var(--dim); margin-top:15px; font-weight: 500;">Select Category</p>
             <select id="apCatSelect">
-                <option value="protein">Whey Protein</option>
-            </select>
+                </select>
             <input id="apCatNew" placeholder="Or type a custom category...">
             
-            <div style="display: flex; align-items: center; gap: 12px; margin: 20px 0; background: var(--card); padding: 15px; border-radius: 10px; border: 1px solid var(--border);">
+            <div style="display: flex; align-items: center; gap: 12px; margin: 20px 0; background: var(--dark); padding: 15px; border-radius: 10px; border: 1px solid var(--border);">
                 <input type="checkbox" id="apHot" style="width: 24px; height: 24px; accent-color: red;">
                 <label for="apHot" style="font-size: 15px; font-weight: 600; color: white;">Feature in Hot Deals 🔥</label>
             </div>
@@ -306,7 +306,7 @@
 
 <footer>
     <div><h4>Fitness Garage Pro</h4><p>Premium sports nutrition, supplements, and fitness gear to help you crush your goals.</p></div>
-    <div><h4>Customer Support</h4><p>+91 9682627975<br>support@fitnessgarage.com</p></div>
+    <div><h4>Customer Support</h4><p>+91 99999 99999<br>support@fitnessgarage.com</p></div>
     <div><h4>Business Logic</h4><p onclick="window.ui.toggle('authSide'); window.auth.showAdminAuth();" style="cursor:pointer; color:var(--primary); font-weight: 600;">Admin Dashboard Login</p></div>
 </footer>
 
@@ -343,7 +343,7 @@
                 window.app.loadHistory(user.email);
             });
             window.ui.setHeader(user.email);
-            window.app.upCart(); // Refreshes address in cart
+            window.app.upCart(); 
         } else {
             localStorage.removeItem("fg_user");
             window.auth.showCustomerAuth();
@@ -630,7 +630,7 @@
                 const safeImg = Array.isArray(i.imgs) && i.imgs.length > 0 && i.imgs[0] !== "" ? i.imgs[0] : 'https://placehold.co/100';
                 return `
                 <div class="item-row" style="align-items:center; padding:15px; background:var(--dark);">
-                    <img src="${safeImg}" style="width:60px; height:60px; object-fit:contain; border-radius:10px; margin-right:15px; background:#fff; padding:2px;">
+                    <img src="${safeImg}" style="width:60px; height:60px; object-fit:contain; border-radius:10px; margin-right:15px; background:transparent; padding:2px;">
                     <div style="flex:1;">
                         <div style="font-weight:700; font-size:15px">${i.name}</div>
                         <div style="color:var(--dim); font-size:11px; margin-top:2px;">₹${i.price} / unit</div>
@@ -738,7 +738,7 @@
                 waMsg += `*Delivery Fee:* ₹${deliveryFee}%0A`;
                 waMsg += `*GRAND TOTAL:* ₹${grandTotal}`;
 
-                window.open(`https://wa.me/919682627975?text=${waMsg}`);
+                window.open(`https://wa.me/919999999999?text=${waMsg}`);
                 
                 window.app.cart = {}; 
                 window.app.activeCoupon = null;
